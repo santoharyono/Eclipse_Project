@@ -1,3 +1,3 @@
 # Eclipse_Project
 
-Repository for learning JPA
+simple CRUD example using JPA
