@@ -26,7 +26,7 @@ public class Department {
 	private String name;
 	
 	@OneToMany(targetEntity = Employee.class)
-	private List employees;
+	private List<?> employees;
 	
 	public Department() {
 		super();
