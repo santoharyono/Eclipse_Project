@@ -3,10 +3,13 @@
  */
 package com.mitraiscdc.eclipselink.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -21,6 +24,9 @@ public class Department {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String name;
+	
+	@OneToMany(targetEntity = Employee.class)
+	private List employees;
 	
 	public Department() {
 		super();
