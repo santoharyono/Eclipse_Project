@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -16,11 +17,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table
+@NamedQuery(query = "select e from Employee e where e.id = :id", name = "find employee by ID")
 public class Employee {
 
-	/**
-	 * 
-	 */
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + ", deg=" + deg + "]";
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
