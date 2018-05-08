@@ -26,6 +26,9 @@ public class Test {
 			Address address = new Address("Bandung", "Pasteur", "12345");
 			Person person = new Person(1L, "Santo", address);
 			
+			person.getNicknames().add("san");
+			person.getNicknames().add("ato");
+			
 			session.save(person);
 			transaction.commit();
 		} catch (Exception e) {

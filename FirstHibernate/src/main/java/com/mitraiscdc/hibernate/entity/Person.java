@@ -3,12 +3,18 @@
  */
 package com.mitraiscdc.hibernate.entity;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 /**
@@ -21,7 +27,7 @@ import javax.persistence.Table;
 @Table(name = "person")
 public class Person {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(name = "name")
@@ -30,6 +36,20 @@ public class Person {
 	@Embedded
 	private Address address;
 	
+//	Mapping collections value types
+	@ElementCollection
+	@CollectionTable(name = "person_nickname", joinColumns = @JoinColumn(name = "person_id"))
+	@Column(name = "nickname")
+	private Collection<String> nicknames = new ArrayList<String>();
+	
+	public Collection<String> getNicknames() {
+		return nicknames;
+	}
+
+	public void setNicknames(Collection<String> nicknames) {
+		this.nicknames = nicknames;
+	}
+
 	public Person() {
 		super();
 		// TODO Auto-generated constructor stub
