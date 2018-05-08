@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.mitraiscdc.hibernate.entity.Book" table="book">
+		<id name="id" type="int" column="userId">
+			<generator class="assigned" />
+		</id>
+		<property name="title">
+			<column name="bookTitle"/>
+		</property>
+		<property name="author">
+			<column name="bookAuthor"/>
+		</property>
+		<property name="price" type="float">
+			<column name="bookPrice"/>
+		</property>
+	</class>
+</hibernate-mapping>
